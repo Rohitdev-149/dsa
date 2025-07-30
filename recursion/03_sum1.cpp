@@ -10,8 +10,8 @@ void sm(int i, int sum)
         cout << "Sum is: " << sum << endl;
         return;
     }
-    sum += i;
-    sm(i - 1, sum); 
+    // sum += i;
+    sm(i - 1, sum+i); 
 
 }
 int main()

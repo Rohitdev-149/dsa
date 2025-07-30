@@ -17,5 +17,5 @@ int main()
     return 0;
 }
 /*
-tc=> 0
+3
 */
