@@ -1,2 +1,5 @@
-# Ignore all exe files
+# Ignore executables
 *.exe
+
+# Ignore temp VSCode file
+tempcoderunner.cpp

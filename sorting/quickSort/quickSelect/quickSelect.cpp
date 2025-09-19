@@ -1,0 +1,44 @@
+#include<iostream>
+using namespace std;
+int partition(int arr[],int si,int ei){
+
+int pivotElm=arr[(si+ei)/2]; 
+    int count=0;
+    for(int i=si;i<=ei;i++){
+    if(i==(si+ei)/2) continue;
+     if(arr[i]<=pivotElm) count++;
+    }
+    int pivotIndex=si+count;
+    swap(arr[pivotIndex],arr[(si+ei)/2]);
+    int i=si,j=ei;
+    while(i<pivotIndex && j>pivotIndex){
+       if(arr[i]<=pivotElm) i++;
+         else if(arr[j]>pivotElm) j--;
+         else if(arr[i]>pivotElm && arr[j]<=pivotElm){
+          swap(arr[i],arr[j]);
+          i++;
+          j--;
+         }
+    }
+    return pivotIndex;
+}
+int quickSort(int arr[],int si,int ei,int k){
+   
+    int pi=partition(arr,si,ei);
+    if(pi+1==k) return arr[pi];
+    else if(pi<k) return quickSort(arr,pi+1,ei,k);
+    else return  quickSort(arr,si,pi-1,k);
+}
+
+
+int main(){
+    int arr[]={5,1,8,2,7,6,3,-2};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    for(int i=0;i<n;i++){
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+    int k=4;
+    cout<<quickSort(arr,0,n-1,k);
+  
+}
