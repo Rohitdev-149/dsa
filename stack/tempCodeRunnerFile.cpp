@@ -1,2 +1,0 @@
-
-pushAtBtm(s,90);
